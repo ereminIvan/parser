@@ -9,8 +9,7 @@ try {
     $schema = new Parser\Service\Schema\Afisha($source, $conn);
 
     $browser = new Parser\Browser();
-    $browser->get($schema->getParseUrl());
-    $html = $browser->exec();
+    $html = $browser->get($schema->getParseUrl());
     $saw = new \nokogiri($html);
 
     $schema->parse($saw, $session);

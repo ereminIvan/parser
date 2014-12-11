@@ -17,6 +17,7 @@ class Browser
         'Mozilla/5.0 (X11; Linux x86_64; rv:34.0) Gecko/20100101 Firefox/34.0',
     ];
 
+    protected $lastHeader;
     /**
      * @var resource
      */
@@ -49,7 +50,9 @@ class Browser
      */
     public function exec()
     {
-        return curl_exec($this->curl);
+        $result = curl_exec($this->curl);
+        $this->lastHeader = curl_getinfo($this->curl);
+        return $result;
     }
 
     public function close()
