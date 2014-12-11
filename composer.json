@@ -1,0 +1,13 @@
+{
+  "name": "food-parser",
+  "license": "MIT",
+  "type": "project",
+  "description": "parser",
+  "autoload": {
+    "psr-4": {"Parser\\" : "parser/"}
+  },
+  "require": {
+    "php": ">=5.3.3",
+    "olamedia/nokogiri": "dev-master"
+  }
+}
