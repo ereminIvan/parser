@@ -9,8 +9,10 @@ namespace Parser;
 
 class SchedulerTask
 {
+    protected $id;
+
     public function __construct($id = null)
     {
-
+        $this->id = $id;
     }
 } 

@@ -3,6 +3,11 @@ include_once 'vendor/autoload.php';
 
 $conn = new Parser\Connection();
 $conn->beginTransaction();
+/** @var Parser\Scheduler $scheduler */
+$scheduler = Parser\Scheduler::getInstance($conn);
+$task = $scheduler->createTask();
+print_r($scheduler); print_r($task);
+
 try {
     $source = new Parser\Entity\Source($conn, 'afisha_eda', 'recipe_list');
     $session = new Parser\Entity\Session($conn, $source->getId());
