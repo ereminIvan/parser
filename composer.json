@@ -1,8 +1,8 @@
 {
-  "name": "food-parser",
+  "name": "elvis",
   "license": "MIT",
   "type": "project",
-  "description": "parser",
+  "description": "web parser",
   "autoload": {
     "psr-4": {"Parser\\" : "parser/"}
   },

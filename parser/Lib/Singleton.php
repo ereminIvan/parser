@@ -7,17 +7,18 @@ namespace Lib;
  */
 trait Singleton
 {
-    private static $instance;
+    protected static $instance;
 
-    private function __construct(){}
     private function __clone(){}
     private function __wakeup(){}
 
-    public static function getInstance()
+    final public static function getInstance()
     {
-        if(empty(static::$instance)) {
-            static::$instance = new static();
+        if(!isset(self::$instance)) {
+            $class = new \ReflectionClass(__CLASS__);
+            self::$instance = $class->newInstanceArgs(func_get_args());
         }
-        return static::$instance;
+
+        return self::$instance;
     }
 }
